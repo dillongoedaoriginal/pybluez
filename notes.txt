@@ -1,0 +1,10 @@
+sudo apt-get update
+sudo apt-get dist-upgrade
+sudo apt-get install libboost-python-dev libboost-thread-dev libbluetooth-dev libglib2.0-dev
+sudo pip install pybluez
+sudo pip install pybluez[ble]
+sudo nano /lib/systemd/system/bluetooth.service
+// then add --experimental to the ExecStart= line so it looks something like this:
+ExecStart=/usr/lib/bluetooth/bluetoothd --experimental
+
+Then reboot or restart the Bluetooth service.
