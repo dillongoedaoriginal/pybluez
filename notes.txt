@@ -10,3 +10,10 @@ ExecStart=/usr/lib/bluetooth/bluetoothd --experimental
 Then reboot or restart the Bluetooth service.
 
 sudo invoke-rc.d bluetooth restart
+-----------------------------------------------
+Rootless Setup
+Normally accessing the Bluetooth stack is reserved for root, but running programs that are networked as root is a bad security wise. To allow non-root access to the Bluetooth stack we can give Python 3 and hcitool the missing capabilities to access the
+
+sudo apt-get install libcap2-bin
+sudo setcap 'cap_net_raw,cap_net_admin+eip' `readlink -f \`which python3\``
+sudo setcap 'cap_net_raw+ep' `readlink -f \`which hcitool\``
