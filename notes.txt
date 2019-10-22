@@ -8,3 +8,5 @@ sudo nano /lib/systemd/system/bluetooth.service
 ExecStart=/usr/lib/bluetooth/bluetoothd --experimental
 
 Then reboot or restart the Bluetooth service.
+
+sudo invoke-rc.d bluetooth restart
